@@ -14,7 +14,8 @@
 </head>
 <body>
     <div class="container">
-        <header class ="jumbotron"><%--Header in site.cass--%></header>
+        <header class ="jumbotron"><h1>SportsPro</h1>
+            <h2>Sports management sofware for the sports enthusiast</h2></header>
         <main>
             <form id="form1" runat="server" class="form-horizontal">
         <div class="row">
@@ -46,6 +47,5 @@
 
         </main>
     </div>
-    
 </body>
 </html>

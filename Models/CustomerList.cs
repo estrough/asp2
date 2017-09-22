@@ -7,11 +7,11 @@ namespace SportsPro.Models
 {
     public class CustomerList
     {
-        private List<CustomerItem> customerItems;
+        private List<Customer> customerItems;
 
         public CustomerList()
         {
-            customerItems = new List<CustomerItem>();
+            customerItems = new List<Customer>();
         }
 
         public int Count
@@ -19,17 +19,17 @@ namespace SportsPro.Models
             get { return customerItems.Count; }
         }
 
-        public CustomerItem this[int index]
+        public Customer this[int index]
         {
             get { return customerItems[index]; }
             set { customerItems[index] = value; }
         }
-        public CustomerItem this[string id]
+        public Customer this[string id]
         {
             get
             {
-                foreach (CustomerItem c in customerItems)
-                    if (c.Customer.CustomerID == id) return c;
+                foreach (Customer c in customerItems)
+                    if (c.CustomerID == id) return c;
                 return null;
             }
         }
@@ -44,7 +44,7 @@ namespace SportsPro.Models
 
         public void AddItem(Customer customer)
         {
-            CustomerItem c = new CustomerItem();
+            Customer c = new Customer();
             customerItems.Add(c);
         }
 
