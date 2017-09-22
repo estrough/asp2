@@ -1,32 +1,32 @@
-﻿using SportsPro.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SportsPro.Models;
 
 namespace SportsPro
 {
     public partial class ContactDisplay : System.Web.UI.Page
     {
         private CustomerList display;
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             display = CustomerList.GetCustomers();
             if (!IsPostBack) this.DisplayCustomer();
         }
-        
+
         protected void DisplayCustomer()
         {
-            
+
             lstCustomers.Items.Clear();
 
             for (int i = 0; i < display.Count; i++)
             {
-                lstCustomers.Items.Add(display[i].Display());
+                lstCustomers.Items.Add(display[i].ContactDisplay());
             }
         }
 
@@ -34,7 +34,7 @@ namespace SportsPro
         {
             if (display.Count > 0)
             {
-                if(lstCustomers.SelectedIndex > -1)
+                if (lstCustomers.SelectedIndex > -1)
                 {
                     display.RemoveAt(lstCustomers.SelectedIndex);
                     this.DisplayCustomer();

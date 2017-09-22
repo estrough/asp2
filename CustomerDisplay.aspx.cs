@@ -4,12 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 using SportsPro.Models;
+using System.Data;
 
 namespace SportsPro
 {
-     
     public partial class CustomerDisplay : System.Web.UI.Page
     {
         private Customer selectedCutsomer;
@@ -20,6 +19,8 @@ namespace SportsPro
             selectedCutsomer = this.GetSelectedCustomer();
             lblStreet.Text = selectedCutsomer.Address;
             lblCityState.Text = selectedCutsomer.City;
+            lblState.Text = selectedCutsomer.State;
+            lblZip.Text = selectedCutsomer.ZipCode;
             lblPhone.Text = selectedCutsomer.Phone;
             lblEmail.Text = selectedCutsomer.Email;
         }
@@ -45,16 +46,17 @@ namespace SportsPro
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            if (IsValid) {
+            if (IsValid)
+            {
 
                 CustomerList cList = CustomerList.GetCustomers();
-                CustomerItem custItem = cList[selectedCutsomer.CustomerID];
+                Customer custItem = cList[selectedCutsomer.CustomerID];
 
                 if (cList == null)
                 {
                     cList.AddItem(selectedCutsomer);
                 }
-               
+
             }
             Response.Redirect("~/ContactDisplay.aspx");
 
